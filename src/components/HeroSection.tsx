@@ -13,6 +13,7 @@ const HeroSection = () => {
         alignItems: "center",
         position: "relative",
         overflow: "hidden",
+        
         "&::before": {
           content: '""',
           position: "absolute",
@@ -61,7 +62,7 @@ const HeroSection = () => {
             WebkitTextFillColor: "transparent",
           }}
         >
-          Alexander Chen
+          Rodrigo Cuello
         </Typography>
         <Typography
           variant="h4"
@@ -72,7 +73,7 @@ const HeroSection = () => {
             fontSize: { xs: "1.2rem", md: "1.6rem" },
           }}
         >
-          Senior Frontend Engineer
+          React JS Developer
         </Typography>
         <Typography
           sx={{
@@ -82,7 +83,7 @@ const HeroSection = () => {
             opacity: 0.8,
           }}
         >
-          San Francisco, CA
+          Philippines, Murcia
         </Typography>
         <Typography
           sx={{
@@ -93,9 +94,8 @@ const HeroSection = () => {
             mb: 4,
           }}
         >
-          Crafting elegant, high-performance web experiences with a focus on
-          scalable architecture, design systems, and user-centric interfaces
-          that drive measurable business impact.
+            3 Years of React Experience | TypeScript Specialist | Full-Stack Enthusiast. 
+            Building sleek, functional web experiences with MUI and Node.js.
         </Typography>
         <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap", flexDirection: { xs: "column", sm: "row" } }}>
           <Button
