@@ -44,7 +44,7 @@ const Navbar = () => {
           borderBottom: "1px solid rgba(160, 180, 200, 0.2)",
         }}
       >
-        <Toolbar sx={{ justifyContent: "space-between", maxWidth: 1200, width: "100%", mx: "auto" }}>
+        <Toolbar sx={{ justifyContent: "space-between", maxWidth: 1200, width: "100%", mx: "auto", px: { xs: 2, md: 3 } }}>
           <Typography
             variant="h6"
             sx={{

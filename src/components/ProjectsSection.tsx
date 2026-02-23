@@ -27,7 +27,7 @@ const ProjectsSection = () => {
 
         <Grid container spacing={4}>
           {projects.map((project, index) => (
-            <Grid size={{ xs: 12, md: 4 }} key={index}>
+            <Grid size={{ xs: 12, sm: 6, md: 4 }} key={index}>
               <Box
                 sx={{
                   p: 4,
