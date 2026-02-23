@@ -97,7 +97,7 @@ const HeroSection = () => {
           scalable architecture, design systems, and user-centric interfaces
           that drive measurable business impact.
         </Typography>
-        <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
+        <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap", flexDirection: { xs: "column", sm: "row" } }}>
           <Button
             variant="contained"
             size="large"

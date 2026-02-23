@@ -48,7 +48,7 @@ const ContactSection = () => {
             WebkitBackdropFilter: "blur(20px)",
             border: "1px solid rgba(160,180,200,0.15)",
             borderRadius: 4,
-            p: { xs: 4, md: 6 },
+            p: { xs: 3, sm: 4, md: 6 },
           }}
         >
           <Grid container spacing={4}>
