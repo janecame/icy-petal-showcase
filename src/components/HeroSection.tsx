@@ -3,6 +3,9 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 
+import EmailIcon from '@mui/icons-material/Email';
+import PhoneIcon from '@mui/icons-material/Phone';
+
 const HeroSection = () => {
   return (
     <Box
@@ -54,12 +57,13 @@ const HeroSection = () => {
         <Typography
           variant="h1"
           sx={{
+           
             fontSize: { xs: "2.8rem", md: "4.5rem" },
             lineHeight: 1.1,
             mb: 2,
             background: "linear-gradient(135deg, #2C3E50 40%, #A0B4C8 100%)",
             WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
+            // WebkitTextFillColor: "transparent",
           }}
         >
           Rodrigo Cuello
@@ -97,6 +101,47 @@ const HeroSection = () => {
             3 Years of React Experience | TypeScript Specialist | Full-Stack Enthusiast. 
             Building sleek, functional web experiences with MUI and Node.js.
         </Typography>
+
+        <Box 
+          sx={{ 
+            display: "flex", 
+            gap: { xs: 1, sm: 4 }, 
+            flexWrap: "wrap", 
+            flexDirection: { xs: "column", sm: "row" },
+            mb: 3 
+          }}
+        >
+          {/* Email Section */}
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+            <EmailIcon sx={{ color: "text.secondary", fontSize: { xs: "1rem", md: "1.2rem" } }} />
+            <Typography
+              variant="subtitle1"
+              sx={{
+                color: "text.secondary",
+                fontWeight: 400,
+                fontSize: { xs: "0.8rem", md: "1rem" }, // Slightly increased mobile size for readability
+              }}
+            >
+              rianecuello@gmail.com
+            </Typography>
+          </Box>
+
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+            <PhoneIcon sx={{ color: "text.secondary", fontSize: { xs: "1rem", md: "1.2rem" } }} />
+            <Typography
+              variant="subtitle1"
+              sx={{
+                color: "text.secondary",
+                fontWeight: 400,
+                fontSize: { xs: "0.8rem", md: "1rem" },
+              }}
+            >
+              +63 912 341 2345
+            </Typography>
+          </Box>
+        </Box>
+        
+
         <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap", flexDirection: { xs: "column", sm: "row" } }}>
           <Button
             variant="contained"
@@ -114,24 +159,7 @@ const HeroSection = () => {
               },
             }}
           >
-            View Projects
-          </Button>
-          <Button
-            variant="outlined"
-            size="large"
-            onClick={() =>
-              document.querySelector("#experience")?.scrollIntoView({ behavior: "smooth" })
-            }
-            sx={{
-              borderColor: "#F2D5D9",
-              color: "#2C3E50",
-              "&:hover": {
-                borderColor: "#E8C0C5",
-                background: "rgba(242,213,217,0.1)",
-              },
-            }}
-          >
-            My Experience
+            My Projects
           </Button>
         </Box>
       </Container>

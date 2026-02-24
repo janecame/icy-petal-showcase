@@ -1,6 +1,16 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { Box, Stack, IconButton, Tooltip, useTheme } from '@mui/material';
-import { Home, Work, Code, Mail, Circle } from '@mui/icons-material';
+import React, { useEffect, useState } from 'react';
+import { 
+  Box, 
+  Stack, 
+  IconButton, 
+  Tooltip, 
+  useTheme, 
+  Drawer, 
+  useMediaQuery,
+  AppBar,
+  Toolbar
+} from '@mui/material';
+import { Home, Work, Code, Mail, Menu as MenuIcon, Close } from '@mui/icons-material';
 
 interface NavItem {
   id: string;
@@ -16,8 +26,10 @@ const navItems: NavItem[] = [
 ];
 
 const Sidebar = () => {
-  const [activeId, setActiveId] = useState('home');
+  const [activeId, setActiveId] = useState('hero');
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -28,7 +40,7 @@ const Sidebar = () => {
           }
         });
       },
-      { threshold: 0.6 } // Adjust this to trigger sooner or later
+      { threshold: 0.6 }
     );
 
     navItems.forEach((item) => {
@@ -39,62 +51,108 @@ const Sidebar = () => {
     return () => observer.disconnect();
   }, []);
 
-  const activeIndex = navItems.findIndex((item) => item.id === activeId);
+  const handleScroll = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    setIsDrawerOpen(false);
+  };
+
+  const NavContent = () => (
+    <Stack spacing={0} alignItems="center">
+      {navItems.map((item, index) => {
+        const isActive = item.id === activeId;
+        const activeIndex = navItems.findIndex((n) => n.id === activeId);
+        const isNeighbor = Math.abs(index - activeIndex) === 1;
+        
+        const opacity = isActive ? 1 : isNeighbor ? 0.4 : 0.1;
+        const scale = isActive ? 1.3 : isNeighbor ? 0.9 : 0.7;
+
+        return (
+          <React.Fragment key={item.id}>
+            {index !== 0 && (
+              <Box
+                sx={{
+                  width: '2px',
+                  height: '30px',
+                  bgcolor: 'text.secondary',
+                  opacity: isNeighbor || isActive ? 0.3 : 0.1,
+                  transition: 'all 0.5s ease',
+                }}
+              />
+            )}
+            <Tooltip title={item.label} placement="right" arrow disableHoverListener={isMobile}>
+              <IconButton
+                onClick={() => handleScroll(item.id)}
+                sx={{
+                  color: isActive ? 'primary.main' : 'text.secondary',
+                  opacity: opacity,
+                  transform: `scale(${scale})`,
+                  transition: 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
+                  '&:hover': { opacity: 1 },
+                }}
+              >
+                {item.icon}
+              </IconButton>
+            </Tooltip>
+          </React.Fragment>
+        );
+      })}
+    </Stack>
+  );
 
   return (
-    <Box
-      component="nav"
-      sx={{
-        position: 'fixed',
-        left: { xs: 16, md: 40 },
-        top: '50%',
-        transform: 'translateY(-50%)',
-        zIndex: theme.zIndex.appBar,
-      }}
-    >
-      <Stack spacing={0} alignItems="center">
-        {navItems.map((item, index) => {
-          const isActive = index === activeIndex;
-          const isNeighbor = Math.abs(index - activeIndex) === 1;
-          
-          // Logic for fading: Active is 1, Neighbors are 0.4, others are 0.1
-          const opacity = isActive ? 1 : isNeighbor ? 0.4 : 0.1;
-          const scale = isActive ? 1.3 : isNeighbor ? 0.9 : 0.7;
+    <>
+      {isMobile ? (
+        <>
+          <IconButton
+            onClick={() => setIsDrawerOpen(!isDrawerOpen)}
+            sx={{
+              position: 'fixed',
+              top: 16,
+              left: 16,
+              zIndex: theme.zIndex.drawer + 1,
+              bgcolor: 'rgba(255, 255, 255, 0.1)',
+              backdropFilter: 'blur(10px)',
+              boxShadow: 1
+            }}
+          >
+            {isDrawerOpen ? <Close /> : <MenuIcon />}
+          </IconButton>
 
-          return (
-            <React.Fragment key={item.id}>
-              {/* Timeline Connector Line */}
-              {index !== 0 && (
-                <Box
-                  sx={{
-                    width: '2px',
-                    height: '30px',
-                    bgcolor: 'text.secondary',
-                    opacity: isNeighbor || isActive ? 0.3 : 0.1,
-                    transition: 'all 0.5s ease',
-                  }}
-                />
-              )}
-
-              <Tooltip title={item.label} placement="right" arrow>
-                <IconButton
-                  onClick={() => document.getElementById(item.id)?.scrollIntoView({ behavior: 'smooth' })}
-                  sx={{
-                    color: isActive ? 'primary.main' : 'text.secondary',
-                    opacity: opacity,
-                    transform: `scale(${scale})`,
-                    transition: 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
-                    '&:hover': { opacity: 1 },
-                  }}
-                >
-                  {item.icon}
-                </IconButton>
-              </Tooltip>
-            </React.Fragment>
-          );
-        })}
-      </Stack>
-    </Box>
+          <Drawer
+            anchor="left"
+            open={isDrawerOpen}
+            onClose={() => setIsDrawerOpen(false)}
+            PaperProps={{
+              sx: {
+                width: 80,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                background: 'rgba(255, 255, 255, 0.2)',
+                backdropFilter: 'blur(15px) saturate(180%)',
+                borderRight: '1px solid rgba(255, 255, 255, 0.3)',
+                boxShadow: 'none'
+              },
+            }}
+          >
+            <NavContent />
+          </Drawer>
+        </>
+      ) : (
+        <Box
+          component="nav"
+          sx={{
+            position: 'fixed',
+            left: 40,
+            top: '50%',
+            transform: 'translateY(-50%)',
+            zIndex: theme.zIndex.appBar,
+          }}
+        >
+          <NavContent />
+        </Box>
+      )}
+    </>
   );
 };
 
