@@ -33,7 +33,7 @@ const TimelineConnector = () => (
 const ExperienceSection = () => {
   return (
     <Box id="experience" sx={{ py: { xs: 8, md: 12 }, background: "rgba(160,180,200,0.04)" }}>
-      <Container maxWidth="lg">
+      <Container maxWidth="md">
         <Grid container spacing={8}>
           <Grid size={{ xs: 12, md: 6 }}>
             <Typography

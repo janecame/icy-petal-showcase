@@ -8,7 +8,7 @@ import { projects } from "@/data/portfolio";
 const ProjectsSection = () => {
   return (
     <Box id="projects" sx={{ py: { xs: 8, md: 12 } }}>
-      <Container maxWidth="lg">
+      <Container maxWidth="md">
         <Typography
           variant="h2"
           sx={{
