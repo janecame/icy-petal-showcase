@@ -33,13 +33,13 @@ const experience = [
     company: "Research",
     dates: "2022 - 2023",
     description: "Permit management using Proof of Authority (PoA) mechanism.",
-    honorableMentions: ["React Native Mobile App", "2D Godot Game"]
+    honorableMentions: ["React Native Mobile App", "2D Godot Game", "Cementery Map (Google Maps)"]
   },
   {
     role: "First Developer Job",
     company: "Full-time",
     dates: "2024 - Present",
-    description: "Building APIs and interfaces with C#, React, and TypeScript.",
+    description: "Building APIs and interfaces with C# Web API Core, React, and TypeScript.",
   },
 ];
 
@@ -73,7 +73,7 @@ const TimelineConnector = () => (
 const ExperienceSection = () => {
   return (
     <Box id="experience" sx={{ py: 8, background: "#fff" }}>
-      <Container maxWidth="sm">
+      <Container maxWidth="md">
         <Typography variant="h4" sx={{ fontWeight: 800, mb: 1, color: "#2C3E50" }}>
           Journey
         </Typography>

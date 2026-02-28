@@ -10,14 +10,29 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import IconButton from "@mui/material/IconButton";
 
 const contactInfo = [
-  { icon: <EmailIcon />, label: "Email", value: "alexander.chen@email.com", href: "mailto:alexander.chen@email.com" },
-  { icon: <PhoneIcon />, label: "Phone", value: "+1 (415) 555-0192", href: "tel:+14155550192" },
-  { icon: <LocationOnIcon />, label: "Location", value: "San Francisco, CA", href: undefined },
+  { 
+    icon: <EmailIcon />, 
+    label: "Email", 
+    value: "rianecuello@email.com", 
+    href: "mailto:rianecuello@email.com" 
+  },
+  { 
+    icon: <PhoneIcon />, 
+    label: "Phone", 
+    value: "+63 961 905 5939", 
+    href: "tel:+639619055939" 
+  },
+  { 
+    icon: <LocationOnIcon />, 
+    label: "Location", 
+    value: "Philippines, NIR", 
+    href: undefined 
+  },
 ];
 
 const socials = [
-  { icon: <GitHubIcon />, href: "https://github.com", label: "GitHub" },
-  { icon: <LinkedInIcon />, href: "https://linkedin.com", label: "LinkedIn" },
+  { icon: <GitHubIcon />, href: "https://github.com/janecame", label: "GitHub" },
+  { icon: <LinkedInIcon />, href: "https://www.linkedin.com/in/rodrigo-cuello-cue03/", label: "LinkedIn" },
 ];
 
 const ContactSection = () => {
