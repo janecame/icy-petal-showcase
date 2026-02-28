@@ -7,23 +7,25 @@ import { projects } from "@/data/portfolio";
 
 const ProjectsSection = () => {
   return (
-    <Box id="projects" sx={{ py: { xs: 8, md: 12 } }}>
-      <Container maxWidth="md">
-        <Typography
-          variant="h2"
-          sx={{
-            fontSize: { xs: "2rem", md: "2.8rem" },
-            mb: 1,
-            background: "linear-gradient(135deg, #2C3E50 40%, #A0B4C8 100%)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-          }}
-        >
-          Projects
-        </Typography>
-        <Typography sx={{ color: "text.secondary", mb: 6, fontSize: "1.05rem" }}>
-          A selection of recent work I'm proud of.
-        </Typography>
+    <Box id="projects" sx={{ py: { xs: 8, md: 12 }}}>
+      <Container maxWidth="md" >
+        <Box sx={{ px: { xs: 2 } }}>
+          <Typography
+            variant="h2"
+            sx={{
+              fontSize: { xs: "2rem", md: "2.8rem" },
+              mb: 1,
+              background: "linear-gradient(135deg, #2C3E50 40%, #A0B4C8 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
+          >
+            Projects
+          </Typography>
+          <Typography sx={{ color: "text.secondary", mb: 6, fontSize: "1.05rem" }}>
+            A selection of recent work I'm proud of.
+          </Typography>
+        </Box>
 
         <Grid container spacing={4}>
           {projects.map((project, index) => (
