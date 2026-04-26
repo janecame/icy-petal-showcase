@@ -113,7 +113,7 @@ const HeroSection = () => {
             mb: { xs: 3, md: 4 },
           }}
         >
-          3 Years of React Experience | TypeScript Specialist | Full-Stack Enthusiast. 
+          3 Years of React Experience | TypeScript | Full-Stack Developer. 
           Building sleek, functional web experiences with MUI and Node.js.
         </Typography>
 
