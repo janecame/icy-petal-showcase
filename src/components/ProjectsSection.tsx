@@ -4,6 +4,10 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Chip from "@mui/material/Chip";
 import { projects } from "@/data/portfolio";
+import Button from "@mui/material/Button";
+import Stack from "@mui/material/Stack";
+import OpenInNewIcon from "@mui/icons-material/OpenInNew";
+import GitHubIcon from "@mui/icons-material/GitHub";
 
 const ProjectsSection = () => {
   return (
@@ -32,7 +36,7 @@ const ProjectsSection = () => {
                 sx={{
                   p: 4,
                   height: "100%",
-                  borderRadius: 4,
+                  borderRadius: 3,
                   background: "rgba(255,255,255,0.55)",
                   backdropFilter: "blur(16px)",
                   WebkitBackdropFilter: "blur(16px)",
@@ -51,13 +55,12 @@ const ProjectsSection = () => {
                     height: 48,
                     borderRadius: 3,
                     mb: 3,
-                    background: `linear-gradient(135deg, ${
-                      index === 0
-                        ? "#A0B4C8, #8CA3B8"
-                        : index === 1
+                    background: `linear-gradient(135deg, ${index === 0
+                      ? "#A0B4C8, #8CA3B8"
+                      : index === 1
                         ? "#F2D5D9, #E8C0C5"
                         : "#A0B4C8, #F2D5D9"
-                    })`,
+                      })`,
                   }}
                 />
                 <Typography variant="h5" sx={{ mb: 1.5, color: "#2C3E50" }}>
@@ -86,6 +89,44 @@ const ProjectsSection = () => {
                       }}
                     />
                   ))}
+                </Box>
+                <Box sx={{ mt: 2, display: "flex", gap: 1 }}>
+                  {project.liveUrl && (
+                    <Button
+                      component="a"
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener"
+                      startIcon={<OpenInNewIcon />}
+                      variant="outlined"
+                      size="small"
+                      sx={{
+                        textTransform: "none",
+                        color: "#2C3E50",
+                        borderColor: "rgba(160,180,200,0.25)",
+                      }}
+                    >
+                      Live
+                    </Button>
+                  )}
+                  {project.githubUrl && project.githubUrl.length > 0 && (
+                    <Button
+                      component="a"
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener"
+                      startIcon={<GitHubIcon />}
+                      variant="outlined"
+                      size="small"
+                      sx={{
+                        textTransform: "none",
+                        color: "#2C3E50",
+                        borderColor: "rgba(160,180,200,0.25)",
+                      }}
+                    >
+                      GitHub
+                    </Button>
+                  )}
                 </Box>
               </Box>
             </Grid>

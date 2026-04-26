@@ -1,11 +1,13 @@
 export const projects = [
   {
-    title: "Cloud Analytics Dashboard",
+    title: "Equipment Requisition Management System",
     description:
-      "A real-time analytics platform providing actionable insights through interactive charts, customizable widgets, and automated reporting for SaaS businesses.",
-    techStack: ["React", "TypeScript", "D3.js", "Node.js", "PostgreSQL"],
+      "Centralized digital platform designed to streamline the requesting, tracking, and approval of hardware assets to ensure efficient resource allocation across an organization.  ",
+    techStack: ["React", "TypeScript", "Docker", "Supabase", "Express", "Node", "GitHub Actions"],
+    liveUrl: "https://erms-lime.vercel.app/auth",
+    githubUrl: ""
   },
-  {
+  /* {
     title: "E-Commerce Mobile App",
     description:
       "A cross-platform mobile shopping experience featuring AI-powered recommendations, seamless checkout, and real-time inventory tracking.",
@@ -16,7 +18,7 @@ export const projects = [
     description:
       "An internal CLI and web dashboard for automating CI/CD pipelines, infrastructure provisioning, and monitoring across multi-cloud environments.",
     techStack: ["Python", "Docker", "Terraform", "AWS", "GraphQL"],
-  },
+  }, */
 ];
 
 export const experience = [
