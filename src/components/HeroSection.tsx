@@ -40,13 +40,13 @@ const HeroSection = () => {
         },
       }}
     >
-      <Container 
-        maxWidth="md" 
-        sx={{ 
-          position: "relative", 
+      <Container
+        maxWidth="md"
+        sx={{
+          position: "relative",
           zIndex: 1,
           // Add responsive horizontal padding
-          px: { xs: 3, sm: 6, md: 0 } 
+          px: { xs: 3, sm: 6, md: 0 }
         }}
       >
         <Typography
@@ -113,17 +113,17 @@ const HeroSection = () => {
             mb: { xs: 3, md: 4 },
           }}
         >
-          3 Years of React Experience | TypeScript | Full-Stack Developer. 
+          3 Years of React Experience | TypeScript | Full-Stack Developer.
           Building sleek, functional web experiences with MUI and Node.js.
         </Typography>
 
         {/* Contact Info Group */}
-        <Box 
-          sx={{ 
-            display: "flex", 
-            gap: { xs: 1.5, sm: 4 }, 
+        <Box
+          sx={{
+            display: "flex",
+            gap: { xs: 1.5, sm: 4 },
             flexDirection: { xs: "column", sm: "row" },
-            mb: 4 
+            mb: 4
           }}
         >
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
@@ -152,6 +152,32 @@ const HeroSection = () => {
         </Box>
 
         <Box sx={{ width: { xs: "100%", sm: "auto" } }}>
+
+
+          <Button
+            variant="contained"
+            component="a"
+            href="/rodrigo-cuello-cv.pdf" // Path to your file in the 'public' folder
+            download="Rodrigo_Cuello_CV.pdf" // Suggests a filename to the browser
+            fullWidth={{ xs: true, sm: false }}
+            size="large"
+            sx={{
+              py: 1.5,
+              px: 4,
+
+              borderRadius: "12px",
+              textTransform: "none",
+              background: "linear-gradient(135deg, #A0B4C8, #8CA3B8)",
+              fontWeight: 600,
+              boxShadow: "0 8px 20px rgba(160,180,200,0.3)",
+              "&:hover": {
+                background: "linear-gradient(135deg, #8CA3B8, #7A93A8)",
+              },
+            }}
+          >
+            Download CV
+          </Button>
+
           <Button
             variant="contained"
             fullWidth={{ xs: true, sm: false }} // Button goes full width on mobile
@@ -162,6 +188,7 @@ const HeroSection = () => {
             sx={{
               py: 1.5,
               px: 4,
+              ml: 1,
               borderRadius: "12px",
               textTransform: "none",
               background: "linear-gradient(135deg, #A0B4C8, #8CA3B8)",
