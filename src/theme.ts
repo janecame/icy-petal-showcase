@@ -3,24 +3,24 @@ import { createTheme } from "@mui/material/styles";
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#A0B4C8",
-      contrastText: "#2C3E50",
+      main: "#4F8EF7",
+      contrastText: "#ffffff",
     },
     secondary: {
-      main: "#F2D5D9",
-      contrastText: "#2C3E50",
+      main: "#E8F0FE",
+      contrastText: "#202124",
     },
     background: {
-      default: "#F9F6EF",
-      paper: "rgba(255, 255, 255, 0.6)",
+      default: "#EEF4FF",
+      paper: "rgba(255, 255, 255, 0.85)",
     },
     text: {
-      primary: "#2C3E50",
-      secondary: "#5A6C7E",
+      primary: "#202124",
+      secondary: "#5F6368",
     },
   },
   typography: {
-    fontFamily: "'Inter', 'Segoe UI', sans-serif",
+    fontFamily: "'Plus Jakarta Sans', 'Segoe UI', sans-serif",
     h1: {
       fontWeight: 800,
       letterSpacing: "-0.02em",

@@ -38,17 +38,17 @@ const Navbar = () => {
         position="sticky"
         elevation={0}
         sx={{
-          background: "rgba(249, 246, 239, 0.7)",
+          background: "rgba(238, 244, 255, 0.75)",
           backdropFilter: "blur(20px)",
           WebkitBackdropFilter: "blur(20px)",
-          borderBottom: "1px solid rgba(160, 180, 200, 0.2)",
+          borderBottom: "1px solid rgba(79, 142, 247, 0.15)",
         }}
       >
         <Toolbar sx={{ justifyContent: "space-between", maxWidth: 1200, width: "100%", mx: "auto", px: { xs: 2, md: 3 } }}>
           <Typography
             variant="h6"
             sx={{
-              background: "linear-gradient(135deg, #A0B4C8, #F2D5D9)",
+              background: "linear-gradient(135deg, #4F8EF7, #A8C4F8)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               fontWeight: 800,
@@ -59,7 +59,7 @@ const Navbar = () => {
           </Typography>
 
           {isMobile ? (
-            <IconButton onClick={() => setDrawerOpen(true)} sx={{ color: "#2C3E50" }}>
+            <IconButton onClick={() => setDrawerOpen(true)} sx={{ color: "#202124" }}>
               <MenuIcon />
             </IconButton>
           ) : (
@@ -69,9 +69,9 @@ const Navbar = () => {
                   key={link.label}
                   onClick={() => scrollTo(link.href)}
                   sx={{
-                    color: "#2C3E50",
+                    color: "#202124",
                     "&:hover": {
-                      background: "rgba(160, 180, 200, 0.15)",
+                      background: "rgba(79, 142, 247, 0.1)",
                     },
                   }}
                 >

@@ -15,16 +15,16 @@ const HeroSection = () => {
         alignItems: "center",
         position: "relative",
         overflow: "hidden",
-        backgroundColor: "#f9f9f9", // Optional: matching your screenshot background
+        backgroundColor: "#EEF4FF",
         "&::before": {
           content: '""',
           position: "absolute",
           top: "-30%",
           right: "-20%",
-          width: { xs: 300, md: 600 }, // Scaled down for mobile
+          width: { xs: 300, md: 600 },
           height: { xs: 300, md: 600 },
           borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(160,180,200,0.3) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(79,142,247,0.25) 0%, transparent 70%)",
           zIndex: 0,
         },
         "&::after": {
@@ -32,10 +32,10 @@ const HeroSection = () => {
           position: "absolute",
           bottom: "-20%",
           left: "-10%",
-          width: { xs: 250, md: 500 }, // Scaled down for mobile
+          width: { xs: 250, md: 500 },
           height: { xs: 250, md: 500 },
           borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(242,213,217,0.3) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(168,196,248,0.35) 0%, transparent 70%)",
           zIndex: 0,
         },
       }}
@@ -45,14 +45,13 @@ const HeroSection = () => {
         sx={{
           position: "relative",
           zIndex: 1,
-          // Add responsive horizontal padding
           px: { xs: 3, sm: 6, md: 0 }
         }}
       >
         <Typography
           variant="overline"
           sx={{
-            color: "#A0B4C8",
+            color: "#4F8EF7",
             fontWeight: 700,
             letterSpacing: 2,
             mb: { xs: 1, md: 2 },
@@ -66,16 +65,11 @@ const HeroSection = () => {
         <Typography
           variant="h1"
           sx={{
-            // Dynamic scaling for the main name
             fontSize: { xs: "2.4rem", sm: "3.5rem", md: "4.5rem" },
             fontWeight: 800,
             lineHeight: 1.1,
             mb: 1.5,
-            color: "#2C3E50",
-            // If you want the gradient back, uncomment below
-            // background: "linear-gradient(135deg, #2C3E50 40%, #A0B4C8 100%)",
-            // WebkitBackgroundClip: "text",
-            // WebkitTextFillColor: "transparent",
+            color: "#202124",
           }}
         >
           Rodrigo Cuello
@@ -90,7 +84,19 @@ const HeroSection = () => {
             fontSize: { xs: "1.1rem", sm: "1.4rem", md: "1.6rem" },
           }}
         >
-          React JS Developer
+          React JS Developer&nbsp;
+          <Box
+            component="span"
+            sx={{
+              color: "#4F8EF7",
+              fontWeight: 600,
+              fontSize: { xs: "0.85rem", sm: "1rem", md: "1.1rem" },
+              display: "inline-block",
+              verticalAlign: "middle",
+            }}
+          >
+            | Claude Code
+          </Box>
         </Typography>
 
         <Typography
@@ -114,7 +120,8 @@ const HeroSection = () => {
           }}
         >
           3 Years of React Experience | TypeScript | Full-Stack Developer.
-          Building sleek, functional web experiences with MUI and Node.js.
+          Building sleek, functional web experiences with MUI, Node.js &amp; Express,
+          C# Web API Core (.NET), with DevOps &amp; CI/CD practices.
         </Typography>
 
         {/* Contact Info Group */}
@@ -127,7 +134,7 @@ const HeroSection = () => {
           }}
         >
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-            <EmailIcon sx={{ color: "#2C3E50", fontSize: "1.1rem", opacity: 0.7 }} />
+            <EmailIcon sx={{ color: "#202124", fontSize: "1.1rem", opacity: 0.7 }} />
             <Typography
               sx={{
                 color: "text.secondary",
@@ -139,7 +146,7 @@ const HeroSection = () => {
           </Box>
 
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-            <PhoneIcon sx={{ color: "#2C3E50", fontSize: "1.1rem", opacity: 0.7 }} />
+            <PhoneIcon sx={{ color: "#202124", fontSize: "1.1rem", opacity: 0.7 }} />
             <Typography
               sx={{
                 color: "text.secondary",
@@ -151,27 +158,31 @@ const HeroSection = () => {
           </Box>
         </Box>
 
-        <Box sx={{ width: { xs: "100%", sm: "auto" } }}>
-
-
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: { xs: "column", sm: "row" },
+            gap: { xs: 1.5, sm: 2 },
+            width: { xs: "100%", sm: "auto" },
+          }}
+        >
           <Button
             variant="contained"
             component="a"
-            href="/rodrigo-cuello-cv.pdf" // Path to your file in the 'public' folder
-            download="Rodrigo_Cuello_CV.pdf" // Suggests a filename to the browser
-            fullWidth={{ xs: true, sm: false }}
+            href="/rodrigo-cuello-cv.pdf"
+            download="Rodrigo_Cuello_CV.pdf"
             size="large"
             sx={{
               py: 1.5,
               px: 4,
-
+              width: { xs: "100%", sm: "auto" },
               borderRadius: "12px",
               textTransform: "none",
-              background: "linear-gradient(135deg, #A0B4C8, #8CA3B8)",
+              background: "linear-gradient(135deg, #4F8EF7, #3B7AE0)",
               fontWeight: 600,
-              boxShadow: "0 8px 20px rgba(160,180,200,0.3)",
+              boxShadow: "0 8px 20px rgba(79,142,247,0.3)",
               "&:hover": {
-                background: "linear-gradient(135deg, #8CA3B8, #7A93A8)",
+                background: "linear-gradient(135deg, #3B7AE0, #2D69CC)",
               },
             }}
           >
@@ -179,8 +190,7 @@ const HeroSection = () => {
           </Button>
 
           <Button
-            variant="contained"
-            fullWidth={{ xs: true, sm: false }} // Button goes full width on mobile
+            variant="outlined"
             size="large"
             onClick={() =>
               document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" })
@@ -188,14 +198,20 @@ const HeroSection = () => {
             sx={{
               py: 1.5,
               px: 4,
-              ml: 1,
+              width: { xs: "100%", sm: "auto" },
               borderRadius: "12px",
               textTransform: "none",
-              background: "linear-gradient(135deg, #A0B4C8, #8CA3B8)",
               fontWeight: 600,
-              boxShadow: "0 8px 20px rgba(160,180,200,0.3)",
+              color: "#4F8EF7",
+              borderColor: "#4F8EF7",
+              borderWidth: 2,
+              background: "transparent",
+              boxShadow: "none",
               "&:hover": {
-                background: "linear-gradient(135deg, #8CA3B8, #7A93A8)",
+                background: "rgba(79,142,247,0.08)",
+                borderColor: "#3B7AE0",
+                color: "#3B7AE0",
+                boxShadow: "0 4px 12px rgba(79,142,247,0.2)",
               },
             }}
           >

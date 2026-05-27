@@ -10,23 +10,23 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import IconButton from "@mui/material/IconButton";
 
 const contactInfo = [
-  { 
-    icon: <EmailIcon />, 
-    label: "Email", 
-    value: "rianecuello@email.com", 
-    href: "mailto:rianecuello@email.com" 
+  {
+    icon: <EmailIcon />,
+    label: "Email",
+    value: "rianecuello@email.com",
+    href: "mailto:rianecuello@email.com"
   },
-  { 
-    icon: <PhoneIcon />, 
-    label: "Phone", 
-    value: "+63 961 905 5939", 
-    href: "tel:+639619055939" 
+  {
+    icon: <PhoneIcon />,
+    label: "Phone",
+    value: "+63 961 905 5939",
+    href: "tel:+639619055939"
   },
-  { 
-    icon: <LocationOnIcon />, 
-    label: "Location", 
-    value: "Philippines, NIR", 
-    href: undefined 
+  {
+    icon: <LocationOnIcon />,
+    label: "Location",
+    value: "Philippines, NIR",
+    href: undefined
   },
 ];
 
@@ -45,7 +45,7 @@ const ContactSection = () => {
             fontSize: { xs: "2rem", md: "2.8rem" },
             mb: 1,
             textAlign: "center",
-            background: "linear-gradient(135deg, #2C3E50 40%, #A0B4C8 100%)",
+            background: "linear-gradient(135deg, #202124 40%, #4F8EF7 100%)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
           }}
@@ -61,7 +61,7 @@ const ContactSection = () => {
             background: "rgba(255,255,255,0.4)",
             backdropFilter: "blur(20px)",
             WebkitBackdropFilter: "blur(20px)",
-            border: "1px solid rgba(160,180,200,0.15)",
+            border: "1px solid rgba(79,142,247,0.15)",
             borderRadius: 4,
             p: { xs: 3, sm: 4, md: 6 },
           }}
@@ -90,14 +90,14 @@ const ContactSection = () => {
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
-                      background: "linear-gradient(135deg, rgba(160,180,200,0.2), rgba(242,213,217,0.2))",
-                      color: "#A0B4C8",
+                      background: "linear-gradient(135deg, rgba(79,142,247,0.15), rgba(168,196,248,0.15))",
+                      color: "#4F8EF7",
                       mb: 1,
                     }}
                   >
                     {item.icon}
                   </Box>
-                  <Typography sx={{ fontWeight: 600, color: "#2C3E50", fontSize: "0.9rem" }}>
+                  <Typography sx={{ fontWeight: 600, color: "#202124", fontSize: "0.9rem" }}>
                     {item.label}
                   </Typography>
                   <Typography sx={{ color: "text.secondary", fontSize: "0.95rem" }}>
@@ -118,10 +118,10 @@ const ContactSection = () => {
                 rel="noopener noreferrer"
                 aria-label={s.label}
                 sx={{
-                  color: "#2C3E50",
-                  border: "1px solid rgba(160,180,200,0.3)",
+                  color: "#202124",
+                  border: "1px solid rgba(79,142,247,0.3)",
                   "&:hover": {
-                    background: "rgba(160,180,200,0.15)",
+                    background: "rgba(79,142,247,0.1)",
                   },
                 }}
               >

@@ -33,87 +33,168 @@ const experience = [
     company: "Research",
     dates: "2022 - 2023",
     description: "Permit management using Proof of Authority (PoA) mechanism.",
-    honorableMentions: ["React Native Mobile App", "2D Godot Game", "Cementery Map (Google Maps)"]
+    honorableMentions: ["React Native Mobile App", "2D Godot Game", "Cemetery Map (Google Maps)"],
   },
   {
     role: "First Developer Job",
-    company: "Full-time",
-    dates: "2024 - Present",
+    company: "CBytes - Full-time",
+    dates: "2024",
     description: "Building APIs and interfaces with C# Web API Core, React, and TypeScript.",
+  },
+  {
+    role: "Full Stack Developer",
+    company: "Cbytes",
+    dates: "2026 - Present",
+    description: "Integrate state management and data flow from backend to frontend.",
+    honorableMentions: ["Implement Claude Code Technologies", "CI/CD Pipeline", "Implemented MUI Layout across every project."],
   },
 ];
 
-
-
-const TimelineDot = ({ gradient }: { gradient: string }) => (
-  <Box
-    sx={{
-      width: 12,
-      height: 12,
-      borderRadius: "50%",
-      background: gradient,
-      flexShrink: 0,
-      mt: 0.6,
-    }}
-  />
-);
-
-const TimelineConnector = () => (
-  <Box
-    sx={{
-      width: 2,
-      flexGrow: 1,
-      background: "rgba(160,180,200,0.2)",
-      mx: "auto",
-      minHeight: 35,
-    }}
-  />
-);
+const SEGMENT_COLORS = ["#4F8EF7", "#2EC4B6", "#3A6FD8"];
 
 const ExperienceSection = () => {
   return (
-    <Box id="experience" sx={{ py: 8, background: "#fff" }}>
+    <Box id="experience" sx={{ pt: { xs: 12, md: 12 }, pb: { xs: 8, md: 12 }, background: "#EEF4FF" }}>
       <Container maxWidth="md">
-        <Typography variant="h4" sx={{ fontWeight: 800, mb: 1, color: "#2C3E50" }}>
+        <Typography variant="h4" sx={{ fontWeight: 800, mb: 1, color: "#202124" }}>
           Journey
         </Typography>
         <Typography sx={{ color: "text.secondary", mb: 6, fontSize: "0.95rem" }}>
           My key technical milestones and first steps.
         </Typography>
 
-        <Box sx={{ display: "flex", flexDirection: "column" }}>
-          {experience.map((item, index) => (
-            <Box key={index} sx={{ display: "flex", gap: 3 }}>
-              <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-                <TimelineDot gradient="#A0B4C8" />
-                {index < experience.length - 1 && <TimelineConnector />}
-              </Box>
-              
-              <Box sx={{ pb: 4 }}>
-                <Typography variant="subtitle1" sx={{ color: "#2C3E50", fontWeight: 700, lineHeight: 1.2 }}>
-                  {item.role}
-                </Typography>
-                
-                <Typography sx={{ color: "text.secondary", fontSize: "0.8rem", mb: 0.5 }}>
-                  {item.company} • {item.dates}
-                </Typography>
+        {/* Horizontal scroll wrapper — auto on mobile, hidden on desktop */}
+        <Box sx={{ overflowX: { xs: "auto", md: "visible" }, pb: 2 }}>
+          <Box
+            sx={{
+              display: "flex",
+              minWidth: { xs: 900, md: "100%" },
+              position: "relative",
+              // py must be large enough to contain the tallest absolute card:
+              // card offset = calc(100% + 95px) = 123 px from bar edge.
+              // Tallest card (with honorableMentions) ≈ 160 px.
+              // Required py ≥ 95 + 160 = 255 px → use 36 (288 px) for breathing room.
+              py: { xs: "288px", md: "288px" },
+            }}
+          >
+            {experience.map((item, index) => {
+              const isAbove = index % 2 === 0;
+              const color = SEGMENT_COLORS[index % SEGMENT_COLORS.length];
+              const year = item.dates.split(/\s|-/)[0];
+              const isFirst = index === 0;
+              const isLast = index === experience.length - 1;
 
-                <Typography sx={{ color: "text.secondary", fontSize: "0.9rem", opacity: 0.8 }}>
-                  {item.description}
-                </Typography>
+              return (
+                <Box key={index} sx={{ flex: 1, position: "relative", height: 28 }}>
 
-                {item.honorableMentions && (
-                  <Box sx={{ display: "flex", gap: 1.5, mt: 1 }}>
-                    {item.honorableMentions.map((mention, mIdx) => (
-                      <Typography key={mIdx} sx={{ fontSize: "0.75rem", color: "#A0B4C8", fontWeight: 600 }}>
-                        + {mention}
-                      </Typography>
-                    ))}
+                  {/* ── Timeline bar segment ── */}
+                  <Box
+                    sx={{
+                      height: 28,
+                      background: color,
+                      borderTopLeftRadius: isFirst ? 14 : 0,
+                      borderBottomLeftRadius: isFirst ? 14 : 0,
+                      borderTopRightRadius: isLast ? 14 : 0,
+                      borderBottomRightRadius: isLast ? 14 : 0,
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        width: 14,
+                        height: 14,
+                        bgcolor: "#fff",
+                        transform: "rotate(45deg)",
+                        border: `2px solid ${color}`,
+                      }}
+                    />
                   </Box>
-                )}
-              </Box>
-            </Box>
-          ))}
+
+                  {/* ── Year label ── */}
+                  <Typography
+                    sx={{
+                      position: "absolute",
+                      left: "50%",
+                      transform: "translateX(-50%)",
+                      [isAbove ? "bottom" : "top"]: "calc(100% + 8px)",
+                      fontWeight: 700,
+                      color,
+                      fontSize: "1rem",
+                      whiteSpace: "nowrap",
+                    }}
+                  >
+                    {year}
+                  </Typography>
+
+                  {/* ── Connector line ── */}
+                  <Box
+                    sx={{
+                      position: "absolute",
+                      left: "50%",
+                      width: "1px",
+                      height: 50,
+                      bgcolor: "rgba(0,0,0,0.15)",
+                      [isAbove ? "bottom" : "top"]: "calc(100% + 40px)",
+                    }}
+                  />
+
+                  {/* ── Card content ── */}
+                  <Box
+                    sx={{
+                      position: "absolute",
+                      left: "50%",
+                      transform: "translateX(-50%)",
+                      width: 160,
+                      textAlign: "center",
+                      [isAbove ? "bottom" : "top"]: "calc(100% + 95px)",
+                    }}
+                  >
+                    <Typography
+                      sx={{
+                        fontWeight: 700,
+                        color: "#202124",
+                        fontSize: "0.85rem",
+                        mb: 0.5,
+                        lineHeight: 1.3,
+                      }}
+                    >
+                      {item.role}
+                    </Typography>
+                    <Typography
+                      sx={{
+                        color: "text.secondary",
+                        fontSize: "0.75rem",
+                        lineHeight: 1.4,
+                      }}
+                    >
+                      {item.description}
+                    </Typography>
+
+                    {/* honorableMentions — only shown on the React & Blockchain entry */}
+                    {item.honorableMentions && (
+                      <Box sx={{ mt: 0.75 }}>
+                        {item.honorableMentions.map((mention, i) => (
+                          <Typography
+                            key={i}
+                            sx={{
+                              color,
+                              fontSize: "0.7rem",
+                              lineHeight: 1.4,
+                              fontStyle: "italic",
+                            }}
+                          >
+                            • {mention}
+                          </Typography>
+                        ))}
+                      </Box>
+                    )}
+                  </Box>
+                </Box>
+              );
+            })}
+          </Box>
         </Box>
       </Container>
     </Box>

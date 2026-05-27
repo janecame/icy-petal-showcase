@@ -110,9 +110,14 @@ const Sidebar = () => {
               top: 16,
               left: 16,
               zIndex: theme.zIndex.drawer + 1,
-              bgcolor: 'rgba(255, 255, 255, 0.1)',
-              backdropFilter: 'blur(10px)',
-              boxShadow: 1
+              bgcolor: 'rgba(255, 255, 255, 0.88)',
+              backdropFilter: 'blur(12px)',
+              border: '1px solid rgba(79, 142, 247, 0.18)',
+              boxShadow: '0 2px 10px rgba(0,0,0,0.10)',
+              color: '#2C3E50',
+              '&:hover': {
+                bgcolor: 'rgba(255, 255, 255, 0.98)',
+              },
             }}
           >
             {isDrawerOpen ? <Close /> : <MenuIcon />}
@@ -128,9 +133,9 @@ const Sidebar = () => {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                background: 'rgba(255, 255, 255, 0.2)',
+                background: 'rgba(238, 244, 255, 0.25)',
                 backdropFilter: 'blur(15px) saturate(180%)',
-                borderRight: '1px solid rgba(255, 255, 255, 0.3)',
+                borderRight: '1px solid rgba(79, 142, 247, 0.2)',
                 boxShadow: 'none'
               },
             }}

@@ -13,7 +13,7 @@ const Index = () => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Box sx={{ bgcolor: "#F9F6EF", minHeight: "100vh" }}>
+      <Box sx={{ bgcolor: "#EEF4FF", minHeight: "100vh" }}>
         <Sidebar />
         <HeroSection />
         <ProjectsSection />
