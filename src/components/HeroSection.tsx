@@ -169,8 +169,7 @@ const HeroSection = () => {
           <Button
             variant="contained"
             component="a"
-            href="/rodrigo-cuello-cv.pdf"
-            download="Rodrigo_Cuello_CV.pdf"
+            href="https://drive.google.com/uc?export=download&id=1vDq6Bp1__bHwYcrfSwFNmwat9_CHzZgi"
             size="large"
             sx={{
               py: 1.5,

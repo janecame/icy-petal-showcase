@@ -4,6 +4,7 @@ import Container from "@mui/material/Container";
 import Chip from "@mui/material/Chip";
 import Button from "@mui/material/Button";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
+import GitHubIcon from "@mui/icons-material/GitHub";
 import { projects } from "@/data/portfolio";
 
 const ProjectsSection = () => {
@@ -27,6 +28,20 @@ const ProjectsSection = () => {
         </Typography>
 
         {/* Carousel viewport — same width as Container so first card aligns with heading */}
+        <Box sx={{ position: "relative" }}>
+          {/* Right fade mask */}
+          <Box
+            sx={{
+              position: "absolute",
+              right: 0,
+              top: 0,
+              bottom: 0,
+              width: 80,
+              background: "linear-gradient(to right, transparent, #F9F6EF)",
+              zIndex: 1,
+              pointerEvents: "none",
+            }}
+          />
         <Box
           sx={{
             overflowX: "auto",
@@ -45,7 +60,7 @@ const ProjectsSection = () => {
                 key={index}
                 sx={{
                   position: "relative",
-                  width: { xs: 240, sm: 280 },
+                  width: { xs: 220, sm: 255 },
                   height: { xs: 380, sm: 440 },
                   borderRadius: 4,
                   overflow: "hidden",
@@ -112,7 +127,7 @@ const ProjectsSection = () => {
                     {project.description}
                   </Typography>
 
-                  {/* Tech stack chips */}
+                  {/* Tech stack chips — max 5 visible */}
                   <Box
                     sx={{
                       display: "flex",
@@ -121,7 +136,7 @@ const ProjectsSection = () => {
                       mb: 2,
                     }}
                   >
-                    {project.techStack.map((tech) => (
+                    {project.techStack.slice(0, 5).map((tech) => (
                       <Chip
                         key={tech}
                         label={tech}
@@ -135,11 +150,24 @@ const ProjectsSection = () => {
                         }}
                       />
                     ))}
+                    {project.techStack.length > 5 && (
+                      <Chip
+                        label={`+${project.techStack.length - 5}`}
+                        size="small"
+                        sx={{
+                          background: "rgba(255,255,255,0.08)",
+                          color: "rgba(255,255,255,0.6)",
+                          border: "1px solid rgba(255,255,255,0.15)",
+                          fontSize: "0.7rem",
+                          height: 22,
+                        }}
+                      />
+                    )}
                   </Box>
 
-                  {/* Live button */}
-                  {project.liveUrl && (
-                    <Box>
+                  {/* Links */}
+                  <Box sx={{ display: "flex", gap: 1 }}>
+                    {project.liveUrl && (
                       <Button
                         component="a"
                         href={project.liveUrl}
@@ -164,12 +192,39 @@ const ProjectsSection = () => {
                       >
                         Live
                       </Button>
-                    </Box>
-                  )}
+                    )}
+                    {project.githubUrl && (
+                      <Button
+                        component="a"
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener"
+                        startIcon={<GitHubIcon sx={{ fontSize: "0.9rem !important" }} />}
+                        variant="outlined"
+                        size="small"
+                        sx={{
+                          color: "#fff",
+                          borderColor: "rgba(255,255,255,0.5)",
+                          textTransform: "none",
+                          fontSize: "0.78rem",
+                          py: 0.5,
+                          px: 1.5,
+                          borderRadius: 2,
+                          "&:hover": {
+                            borderColor: "#fff",
+                            background: "rgba(255,255,255,0.1)",
+                          },
+                        }}
+                      >
+                        GitHub
+                      </Button>
+                    )}
+                  </Box>
                 </Box>
               </Box>
             ))}
           </Box>
+        </Box>
         </Box>
       </Container>
     </Box>

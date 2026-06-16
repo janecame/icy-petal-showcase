@@ -1,6 +1,7 @@
 import ermsDashboard1 from "@/assets/images/erms_collage_cover1.png";
 import bakyasDashboard1 from "@/assets/images/bakyas_collage_alternate1.png";
 import cynyxDashboard1 from "@/assets/images/cynyx_collage_diagonal.png";
+import skillProgressCover from "@/assets/images/skill-progress-cover.png";
 export const projects = [
   {
     title: "Equipment Requisition Management System",
@@ -20,6 +21,15 @@ export const projects = [
     githubUrl: "",
     gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
     image: bakyasDashboard1,
+  },
+  {
+    title: "SkillForge",
+    description:
+      "SkillForge is a full-stack learning tracker that helps users manage and visualize their skill development, projects, and lessons. Built with React/TypeScript on the frontend and Node.js/Express on the backend, it uses PostgreSQL (Supabase) for data persistence and AWS (EC2/S3) for deployment and file storage. Features include skill hierarchies, project tracking, lesson management, and progress visualization with Recharts.",
+    techStack: ["React 18", "TypeScript", "Vite", "MUI v5", "TanStack Query", "Recharts", "dnd-kit", "Node.js", "Express", "Supabase", "PostgreSQL", "AWS EC2", "AWS S3", "GitHub Actions", "Claude API"],
+    liveUrl: "http://my-skill-tracker-fe.s3-website-ap-southeast-2.amazonaws.com/",
+    githubUrl: "https://github.com/janecame/my-skill.git",
+    image: skillProgressCover,
   },
   {
     title: "Cynyx",
