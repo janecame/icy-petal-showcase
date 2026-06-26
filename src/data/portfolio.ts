@@ -2,7 +2,18 @@ import ermsDashboard1 from "@/assets/images/erms_collage_cover1.png";
 import bakyasDashboard1 from "@/assets/images/bakyas_collage_alternate1.png";
 import cynyxDashboard1 from "@/assets/images/cynyx_collage_diagonal.png";
 import skillProgressCover from "@/assets/images/skill-progress-cover.png";
+import hiramCover from "@/assets/images/hiram.png";
 export const projects = [
+  {
+    title: "Hiram",
+    description:
+      "Peer-to-peer item rental marketplace for the Philippines. List what you own, borrow what you need — tools, gear, and appliances connecting neighbors across barangays and cities.",
+    techStack: ["React TS", "MUI", "Node", "Socket.io", "JWT", "AWS S3", "EB", "CloudFront", "RDS", "Claude Code", "Leaflet", "PostGIS"],
+    liveUrl: "https://d24lgmi15jlt3j.cloudfront.net/",
+    githubUrl: "https://github.com/janecame/Hiram.git",
+    gradient: "linear-gradient(135deg, #f7971e 0%, #ffd200 100%)",
+    image: hiramCover,
+  },
   {
     title: "Equipment Requisition Management System",
     description:
@@ -11,16 +22,6 @@ export const projects = [
     liveUrl: "https://erms-lime.vercel.app/auth",
     githubUrl: "",
     image: ermsDashboard1,
-  },
-  {
-    title: "Bakyas Profiling",
-    description:
-      "A community profiling and participant management system for the Bakyas organization in the Philippines. It tracks Self-Help Groups (SHGs), Children's/Youth Groups (CYGs), Community Learning Associations (CLAs), Federations, and individual adult/child participants with detailed demographic, livelihood, and resource data.",
-    techStack: ["React", "Typescript", "MUI", "Azure", "MSSQL", "C# Web API Core", "Claude Code"],
-    liveUrl: "",
-    githubUrl: "",
-    gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-    image: bakyasDashboard1,
   },
   {
     title: "SkillForge",
@@ -40,6 +41,16 @@ export const projects = [
     githubUrl: "",
     gradient: "linear-gradient(135deg, #11998e 0%, #38ef7d 100%)",
     image: cynyxDashboard1,
+  },
+  {
+    title: "Bakyas Profiling",
+    description:
+      "A community profiling and participant management system for the Bakyas organization in the Philippines. It tracks Self-Help Groups (SHGs), Children's/Youth Groups (CYGs), Community Learning Associations (CLAs), Federations, and individual adult/child participants with detailed demographic, livelihood, and resource data.",
+    techStack: ["React", "Typescript", "MUI", "Azure", "MSSQL", "C# Web API Core", "Claude Code"],
+    liveUrl: "",
+    githubUrl: "",
+    gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+    image: bakyasDashboard1,
   },
 
 ];

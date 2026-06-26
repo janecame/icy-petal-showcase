@@ -42,189 +42,189 @@ const ProjectsSection = () => {
               pointerEvents: "none",
             }}
           />
-        <Box
-          sx={{
-            overflowX: "auto",
-            overflowY: "visible",
-            pt: 3,
-            pb: 4,
-            scrollbarWidth: "none",
-            "&::-webkit-scrollbar": { display: "none" },
-            scrollSnapType: "x mandatory",
-            WebkitOverflowScrolling: "touch",
-          }}
-        >
-          <Box sx={{ display: "flex", ml: 3, gap: 3, width: "max-content" }}>
-            {projects.map((project, index) => (
-              <Box
-                key={index}
-                sx={{
-                  position: "relative",
-                  width: { xs: 220, sm: 255 },
-                  height: { xs: 380, sm: 440 },
-                  borderRadius: 4,
-                  overflow: "hidden",
-                  flexShrink: 0,
-                  scrollSnapAlign: "start",
-                  boxShadow: "0 4px 20px rgba(0,0,0,0.08)",
-                }}
-              >
-                {/* Background image or gradient */}
+          <Box
+            sx={{
+              overflowX: "auto",
+              overflowY: "visible",
+              pt: 3,
+              pb: 4,
+              scrollbarWidth: "none",
+              "&::-webkit-scrollbar": { display: "none" },
+              scrollSnapType: "x mandatory",
+              WebkitOverflowScrolling: "touch",
+            }}
+          >
+            <Box sx={{ display: "flex", ml: 3, gap: 3, width: "max-content" }}>
+              {projects.map((project, index) => (
                 <Box
+                  key={index}
                   sx={{
-                    position: "absolute",
-                    inset: 0,
-                    backgroundImage:
-                      "image" in project && project.image
-                        ? `url(${project.image})`
-                        : "gradient" in project && project.gradient
-                          ? project.gradient
-                          : "linear-gradient(135deg, #4F8EF7, #3B7AE0)",
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                  }}
-                />
-
-                {/* Static content overlay — always visible */}
-                <Box
-                  sx={{
-                    position: "absolute",
-                    inset: 0,
-                    background:
-                      "linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.45) 60%, rgba(0,0,0,0.1) 100%)",
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "flex-end",
-                    p: 3,
+                    position: "relative",
+                    width: { xs: 220, sm: 255 },
+                    height: { xs: 380, sm: 440 },
+                    borderRadius: 4,
+                    overflow: "hidden",
+                    flexShrink: 0,
+                    scrollSnapAlign: "start",
+                    boxShadow: "0 4px 20px rgba(0,0,0,0.08)",
                   }}
                 >
-                  {/* Title */}
-                  <Typography
-                    variant="h6"
-                    sx={{
-                      color: "#fff",
-                      fontWeight: 600,
-                      mb: 1,
-                      lineHeight: 1.25,
-                    }}
-                  >
-                    {project.title}
-                  </Typography>
-
-                  {/* Description */}
-                  <Typography
-                    sx={{
-                      fontSize: "0.82rem",
-                      color: "rgba(255,255,255,0.8)",
-                      mb: 1.5,
-                      lineHeight: 1.5,
-                      overflow: "hidden",
-                      display: "-webkit-box",
-                      WebkitLineClamp: 3,
-                      WebkitBoxOrient: "vertical",
-                    }}
-                  >
-                    {project.description}
-                  </Typography>
-
-                  {/* Tech stack chips — max 5 visible */}
+                  {/* Background image or gradient */}
                   <Box
                     sx={{
+                      position: "absolute",
+                      inset: 0,
+                      backgroundImage:
+                        "image" in project && project.image
+                          ? `url(${project.image})`
+                          : "gradient" in project && project.gradient
+                            ? project.gradient
+                            : "linear-gradient(135deg, #4F8EF7, #3B7AE0)",
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                    }}
+                  />
+
+                  {/* Static content overlay — always visible */}
+                  <Box
+                    sx={{
+                      position: "absolute",
+                      inset: 0,
+                      background:
+                        "linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.45) 60%, rgba(0,0,0,0.1) 100%)",
                       display: "flex",
-                      flexWrap: "wrap",
-                      gap: 0.75,
-                      mb: 2,
+                      flexDirection: "column",
+                      justifyContent: "flex-end",
+                      p: 3,
                     }}
                   >
-                    {project.techStack.slice(0, 5).map((tech) => (
-                      <Chip
-                        key={tech}
-                        label={tech}
-                        size="small"
-                        sx={{
-                          background: "rgba(255,255,255,0.15)",
-                          color: "#fff",
-                          border: "1px solid rgba(255,255,255,0.25)",
-                          fontSize: "0.7rem",
-                          height: 22,
-                        }}
-                      />
-                    ))}
-                    {project.techStack.length > 5 && (
-                      <Chip
-                        label={`+${project.techStack.length - 5}`}
-                        size="small"
-                        sx={{
-                          background: "rgba(255,255,255,0.08)",
-                          color: "rgba(255,255,255,0.6)",
-                          border: "1px solid rgba(255,255,255,0.15)",
-                          fontSize: "0.7rem",
-                          height: 22,
-                        }}
-                      />
-                    )}
-                  </Box>
+                    {/* Title */}
+                    <Typography
+                      variant="h6"
+                      sx={{
+                        color: "#fff",
+                        fontWeight: 600,
+                        mb: 1,
+                        lineHeight: 1.25,
+                      }}
+                    >
+                      {project.title}
+                    </Typography>
 
-                  {/* Links */}
-                  <Box sx={{ display: "flex", gap: 1 }}>
-                    {project.liveUrl && (
-                      <Button
-                        component="a"
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noopener"
-                        startIcon={<OpenInNewIcon sx={{ fontSize: "0.9rem !important" }} />}
-                        variant="outlined"
-                        size="small"
-                        sx={{
-                          color: "#fff",
-                          borderColor: "rgba(255,255,255,0.5)",
-                          textTransform: "none",
-                          fontSize: "0.78rem",
-                          py: 0.5,
-                          px: 1.5,
-                          borderRadius: 2,
-                          "&:hover": {
-                            borderColor: "#fff",
-                            background: "rgba(255,255,255,0.1)",
-                          },
-                        }}
-                      >
-                        Live
-                      </Button>
-                    )}
-                    {project.githubUrl && (
-                      <Button
-                        component="a"
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener"
-                        startIcon={<GitHubIcon sx={{ fontSize: "0.9rem !important" }} />}
-                        variant="outlined"
-                        size="small"
-                        sx={{
-                          color: "#fff",
-                          borderColor: "rgba(255,255,255,0.5)",
-                          textTransform: "none",
-                          fontSize: "0.78rem",
-                          py: 0.5,
-                          px: 1.5,
-                          borderRadius: 2,
-                          "&:hover": {
-                            borderColor: "#fff",
-                            background: "rgba(255,255,255,0.1)",
-                          },
-                        }}
-                      >
-                        GitHub
-                      </Button>
-                    )}
+                    {/* Description */}
+                    <Typography
+                      sx={{
+                        fontSize: "0.82rem",
+                        color: "rgba(255,255,255,0.8)",
+                        mb: 1.5,
+                        lineHeight: 1.5,
+                        overflow: "hidden",
+                        display: "-webkit-box",
+                        WebkitLineClamp: 3,
+                        WebkitBoxOrient: "vertical",
+                      }}
+                    >
+                      {project.description}
+                    </Typography>
+
+                    {/* Tech stack chips — max 5 visible */}
+                    <Box
+                      sx={{
+                        display: "flex",
+                        flexWrap: "wrap",
+                        gap: 0.75,
+                        mb: 2,
+                      }}
+                    >
+                      {project.techStack.slice(0, 5).map((tech) => (
+                        <Chip
+                          key={tech}
+                          label={tech}
+                          size="small"
+                          sx={{
+                            background: "rgba(255,255,255,0.15)",
+                            color: "#fff",
+                            border: "1px solid rgba(255,255,255,0.25)",
+                            fontSize: "0.7rem",
+                            height: 22,
+                          }}
+                        />
+                      ))}
+                      {project.techStack.length > 5 && (
+                        <Chip
+                          label={`+${project.techStack.length - 5}`}
+                          size="small"
+                          sx={{
+                            background: "rgba(255,255,255,0.08)",
+                            color: "rgba(255,255,255,0.6)",
+                            border: "1px solid rgba(255,255,255,0.15)",
+                            fontSize: "0.7rem",
+                            height: 22,
+                          }}
+                        />
+                      )}
+                    </Box>
+
+                    {/* Links */}
+                    <Box sx={{ display: "flex", gap: 1 }}>
+                      {project.liveUrl && (
+                        <Button
+                          component="a"
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener"
+                          startIcon={<OpenInNewIcon sx={{ fontSize: "0.9rem !important" }} />}
+                          variant="outlined"
+                          size="small"
+                          sx={{
+                            color: "#fff",
+                            borderColor: "rgba(255,255,255,0.5)",
+                            textTransform: "none",
+                            fontSize: "0.78rem",
+                            py: 0.5,
+                            px: 1.5,
+                            borderRadius: 2,
+                            "&:hover": {
+                              borderColor: "#fff",
+                              background: "rgba(255,255,255,0.1)",
+                            },
+                          }}
+                        >
+                          Live
+                        </Button>
+                      )}
+                      {project.githubUrl && (
+                        <Button
+                          component="a"
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener"
+                          startIcon={<GitHubIcon sx={{ fontSize: "0.9rem !important" }} />}
+                          variant="outlined"
+                          size="small"
+                          sx={{
+                            color: "#fff",
+                            borderColor: "rgba(255,255,255,0.5)",
+                            textTransform: "none",
+                            fontSize: "0.78rem",
+                            py: 0.5,
+                            px: 1.5,
+                            borderRadius: 2,
+                            "&:hover": {
+                              borderColor: "#fff",
+                              background: "rgba(255,255,255,0.1)",
+                            },
+                          }}
+                        >
+                          GitHub
+                        </Button>
+                      )}
+                    </Box>
                   </Box>
                 </Box>
-              </Box>
-            ))}
+              ))}
+            </Box>
           </Box>
-        </Box>
         </Box>
       </Container>
     </Box>
